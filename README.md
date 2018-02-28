@@ -73,7 +73,7 @@
                 return
             }
             touchId = e.touchEvent.changedTouches[0].identifier;
-            e.preventDefault()
+            e.preventDefault() //阻止默认的滚动页面事件
             $this = $(this)
             $right = $this.find('.option-can')
             $left = $this.find('.option-not')
@@ -188,3 +188,5 @@
         })
   
 在panstart部分，要把后续会进行获取节点的操作进行省略，提高性能，所以对节点在开始被挪动的时候进行缓存，防止每移动一点点就获取一次。这也是为了体验流畅，性能提升做了很大的贡献的一步。
+
+(ps:在最后说明一点，panstart、pan、panend都是自行封装的手势库的参数，类似于touchstart、touchmove、touchend)
